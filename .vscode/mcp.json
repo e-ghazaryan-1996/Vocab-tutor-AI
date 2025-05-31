@@ -1,0 +1,22 @@
+{
+  "inputs": [
+    {
+      "type": "promptString",
+      "id": "github-key",
+      "description": "Github PAT",
+      "password": true
+    }
+  ],
+  "servers": {
+    "github": {
+      "command": "bash",
+      "args": [
+        "-c",
+        "source ~/.nvm/nvm.sh && nvm use 18 && npx --yes @modelcontextprotocol/server-github start"
+      ],
+      "env": {
+        "GITHUB_PERSONAL_ACCESS_TOKEN": "${input:github-key}"
+      }
+    }
+  }
+}
